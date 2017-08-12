@@ -417,11 +417,12 @@ public class SeafItemAdapter extends BaseAdapter {
             ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
             String url = dataManager.getThumbnailLink(repoName, repoID, filePath, getThumbnailWidth());
             if (url == null) {
-                ImageLoader.getInstance().displayImage("drawable://" + dirent.getIcon(), viewHolder.icon, WidgetUtils.iconOptions);
-            } else
+                viewHolder.icon.setImageResource(dirent.getIcon());
+            } else {
                 ImageLoader.getInstance().displayImage(url, viewHolder.icon, options, animateFirstListener);
+            }
         } else {
-            ImageLoader.getInstance().displayImage("drawable://" + dirent.getIcon(), viewHolder.icon, WidgetUtils.iconOptions);
+            viewHolder.icon.setImageResource(dirent.getIcon());
         }
 
     }
